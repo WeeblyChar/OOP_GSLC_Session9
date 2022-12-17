@@ -14,8 +14,7 @@ public class Main {
 	Scanner sc = new Scanner(System.in);
 	ArrayList<MainOpModel> opModel = new ArrayList<>();
 
-	// This is a method to put the Thread asleep for the inputted number in
-	// miliseconds
+	// This is a method to put the Thread asleep for the inputted number in miliseconds.
 	public static void wait(int ms) {
 		try {
 			Thread.sleep(ms);
@@ -24,7 +23,7 @@ public class Main {
 		}
 	}
 
-	// This clears the screen
+	// This clears the screen just for convenience.
 	public void clearSpace() {
 		for (int i = 0; i < 20; i++)
 			System.out.println("");
@@ -38,7 +37,7 @@ public class Main {
 		}
 	}
 
-	// This shows the menu
+	// This shows the main menu for users to choose.
 	public void menu() {
 		clearSpace();
 		System.out.println("Operators Arena! v1.0");
@@ -82,9 +81,8 @@ public class Main {
 		System.out.println("=================");
 		boolean nameFlag = false;
 
-		// This will check if the Name is at least 1 character and isn't more than 10
-		// character while also
-		// search if there's already a similar name or not that has been already used.
+		// This will check if the Name is at least 1 character and isn't more than 10 characters while also
+		// searching if there's already the same name existing in the ArrayList.
 		do {
 			System.out.print("Insert Operator Name [10] : ");
 			name = sc.nextLine();
@@ -104,6 +102,8 @@ public class Main {
 
 		System.out.println("Added " + type + " Operator named " + name + ".");
 		System.out.println("Status :");
+		
+		// Creates the instance and adding them to the ArrayList
 		if (type.equals("Physical")) {
 			OpAttack newOp = new OpAttack(name, type);
 			opModel.add(newOp);
@@ -129,6 +129,7 @@ public class Main {
 			return;
 		}
 
+		// Checks if there's less than 2 Operators available.
 		if (opModel.size() < 2) {
 			System.out.println("There's only one Operator, unable to test!");
 			sc.nextLine();
@@ -136,6 +137,8 @@ public class Main {
 		}
 		view();
 		int x = 0, y = 0;
+		
+		// Choosing Operators and preventing from choosing the same Operator 
 		do {
 			System.out.printf("Choose First Operator [1-%d]: ", opModel.size());
 			x = sc.nextInt();
@@ -324,7 +327,6 @@ public class Main {
 
 	public static void main(String[] args) {
 		new Main();
-
 	}
 
 }
